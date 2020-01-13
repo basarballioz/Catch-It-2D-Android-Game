@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="0.9"
+    android:background="@drawable/welcome"
+    tools:context=".WelcomeScreen">
+
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="206dp"
+        android:layout_height="43dp"
+        android:background="@color/colorBlue"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="startGame"
+        android:text="START GAME"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pressStart"
+        app:layout_constraintVertical_bias="0.799" />
+
+    <Button
+        android:id="@+id/gitHubButton"
+        android:layout_width="125dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="11dp"
+        android:background="@color/colorGitHubButton"
+        android:onClick="openGitHub"
+        android:text="VISIT GITHUB"
+        android:textColor="@android:color/background_light"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showAbout"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/showAbout"
+        android:layout_width="141dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorGreen"
+        android:onClick="showAbout"
+        android:text="ABOUT"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startGameButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/pressStart"
+        android:layout_width="403dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center_horizontal"
+        android:text="PRESS START TO BEGIN !"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
