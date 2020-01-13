@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "415277991920",
+    "firebase_url": "https://catchit-d446f.firebaseio.com",
+    "project_id": "catchit-d446f",
+    "storage_bucket": "catchit-d446f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415277991920:android:452b8b05938cfa743d7f35",
+        "android_client_info": {
+          "package_name": "com.basarballioz.catchit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415277991920-map5jrnc4ake31orgqleofupnbodbt8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB70yIfo4RhiXkw-H7Hs8_Z5LoO_I7rRmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415277991920-map5jrnc4ake31orgqleofupnbodbt8j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
