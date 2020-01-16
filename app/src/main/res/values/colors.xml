@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#5F5F5F</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorBlue">#0F73D3</color>
+    <color name="colorGray">#4E4E4E</color>
     <color name="colorGreen">#18D64B</color>
     <color name="colorGitHubButton">#F263FA</color>
 </resources>
