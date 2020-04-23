@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     int lastScore;
     TextView scoreText;
     TextView timeText;
-    TextView userRecord;
     ImageView imageView3;
     ImageView imageView4;
     ImageView imageView5;
@@ -51,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         showStatus = findViewById(R.id.showStatus);
-        userRecord = findViewById(R.id.userRecord);
         timeText = findViewById(R.id.timeText);
         scoreText = findViewById(R.id.scoreText);
         imageView3 = findViewById(R.id.imageView3);
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         imageArray = new ImageView[] {imageView3, imageView4, imageView5, imageView6, imageView7, imageView8, imageView9, imageView10, imageView11};
         hideImages();
 
-        userRecord.setText("Last Score: " + lastScore);
+
 
         //SETTING TIMER FOR GAME TIME
         gameTime = new CountDownTimer(15000, 1000) {
@@ -89,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 final Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(500);
 
-                userRecord.setText("Last Score: " + lastScore);
+                
                 timeText.setText("Time is up!");
 
                 //OYUN BİTTİĞİNDE HANDLER'I DURDURMA (GÖRSELLER ARTIK HAREKET EDEMEYECEK !!!)
