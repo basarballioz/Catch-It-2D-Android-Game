@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                
+
                 //IF USER WANTS TO PLAY AGAIN
                 gameOver.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
