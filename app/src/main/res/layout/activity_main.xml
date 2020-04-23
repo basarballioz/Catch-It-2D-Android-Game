@@ -169,4 +169,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/highScore"
+        android:layout_width="202dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="458dp"
+        android:textColor="@color/ic_launcher_background"
+        android:text="High Score:"
+        app:layout_constraintBottom_toTopOf="@+id/showStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gridLayout"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -22,7 +23,6 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int score = 0;
-    int lastScore;
     TextView scoreText;
     TextView timeText;
     ImageView imageView3;
@@ -39,20 +39,23 @@ public class MainActivity extends AppCompatActivity {
     Runnable runnable;
     TextView informationText;
     TextView showStatus;
+    TextView highScore;
     CountDownTimer gameTime = null;
+    SharedPreferences sharedPreferences;
+    int kaydedilmisSkor;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_main);
 
 
 
         showStatus = findViewById(R.id.showStatus);
         timeText = findViewById(R.id.timeText);
+        highScore = findViewById(R.id.highScore);
         scoreText = findViewById(R.id.scoreText);
         imageView3 = findViewById(R.id.imageView3);
         imageView4 = findViewById(R.id.imageView4);
@@ -65,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
         imageView11 = findViewById(R.id.imageView11);
         imageArray = new ImageView[] {imageView3, imageView4, imageView5, imageView6, imageView7, imageView8, imageView9, imageView10, imageView11};
         hideImages();
+
+        //SHARED PREFERENCES
+        sharedPreferences = this.getSharedPreferences("com.basarballioz.catchit", Context.MODE_PRIVATE);
+
+
+        kaydedilmisSkor = sharedPreferences.getInt("bestScore", 0);
+
+        highScore.setText("High Score: " + kaydedilmisSkor);
 
 
 
@@ -88,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 final Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(500);
 
-                
+
                 timeText.setText("Time is up!");
 
                 //OYUN BİTTİĞİNDE HANDLER'I DURDURMA (GÖRSELLER ARTIK HAREKET EDEMEYECEK !!!)
@@ -104,9 +115,20 @@ public class MainActivity extends AppCompatActivity {
                 //LOST FOCUS - ALERT DIALOGUNUN KAPANMASINI ONLEME KISMI
                 gameOver.setCancelable(false);
 
+
+                //GAME OVER MESAJLARI
                 gameOver.setTitle("Time is up!");
                 gameOver.setMessage("Your score was: " + score + "\nDo you want to play again ?");
 
+                //Shared Preferences
+                if (score >= kaydedilmisSkor) {
+                    sharedPreferences.edit().putInt("bestScore", score).apply();
+                    highScore.setText("High Score: " + score);
+                }
+
+
+
+                
                 //IF USER WANTS TO PLAY AGAIN
                 gameOver.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -147,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
                 gameOver.show();
             }
         }.start();
-        lastScore = score;
     }
 
     @Override
@@ -172,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
         vibrator.vibrate(everyTouch);
 
         score++;
-        lastScore++;
         scoreText.setText("Score: " + score);
 
         if (score >= 1) {
@@ -236,8 +256,9 @@ public class MainActivity extends AppCompatActivity {
 
                 //RANDOM ÇALIŞTIR BİRDEN DOKUZA KADAR
                 Random random = new Random();
-                int crashImage = random.nextInt(9);
+                int crashImage = random.nextInt(imageArray.length);
 
+                //IMAGELERI VISIBLE HALE GETIR
                 imageArray[crashImage].setVisibility(View.VISIBLE);
 
                 handler.postDelayed(this, 500);
