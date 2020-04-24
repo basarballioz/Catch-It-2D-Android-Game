@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     TextView highScore;
     CountDownTimer gameTime = null;
     SharedPreferences sharedPreferences;
-    int kaydedilmisSkor;
+    int savedScore;
 
 
     @Override
@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = this.getSharedPreferences("com.basarballioz.catchit", Context.MODE_PRIVATE);
 
 
-        kaydedilmisSkor = sharedPreferences.getInt("bestScore", 0);
+        savedScore = sharedPreferences.getInt("bestScore", 0);
 
-        highScore.setText("High Score: " + kaydedilmisSkor);
+        highScore.setText("High Score: " + savedScore);
 
 
 
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 gameOver.setMessage("Your score was: " + score + "\nDo you want to play again ?");
 
                 //Shared Preferences
-                if (score >= kaydedilmisSkor) {
+                if (score >= savedScore) {
                     sharedPreferences.edit().putInt("bestScore", score).apply();
                     highScore.setText("High Score: " + score);
                 }
